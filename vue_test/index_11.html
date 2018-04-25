@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css与style</title>
+    <script src="test/js/vue.js"></script>
+</head>
+<body>
+<div v-bind:class="classObject"></div>
+</body>
+<script>
+  new Vue({
+    data:{
+      isActive:true,
+      error:null
+    },
+    computed:{
+      classObject : function () {
+        return{
+          active:this.isActive && !this.error,
+          'text-danger': this.error && this.error.type === 'fatal'
+        }
+      }
+    }
+  })
+</script>
+</html>

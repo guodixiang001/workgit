@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="test/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <p>{{fullname}} {{firstname}} {{lastname}}</p>
+</div>
+<script>
+  var app=new Vue({
+    el:'#app',
+    data:{
+      firstname:'1',
+      lastname:'2'
+    },
+    computed:{
+      fullname:{
+      get:function ()
+      {
+        return  this.firstname+"  "+this.lastname
+      },
+      set:function (newvalue) {
+        var names=newvalue.split(" ")
+        this.firstname=names[0]
+        this.lastname=names[names.length-1]
+      }
+      }
+    }
+  })
+  app.fullname="3 4";
+</script>
+</body>
+</html>

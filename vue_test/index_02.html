@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>vue_test</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app_2">
+  <span v-bind:title="message">提示信息</span>
+</div>
+<script>
+  new Vue({
+    el:'#app_2',
+    data:{
+    message:'页面加载'+new Date().toLocaleString()
+  }
+  });
+
+</script>
+</body>
+</html>

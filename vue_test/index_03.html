@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue条件</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app_03">
+  <p v-if="seen">循环</p>
+</div>
+<script>
+  new Vue({
+    el:'#app_03',
+    data:{
+      seen:true
+    }
+  })
+</script>
+</body>
+</html>

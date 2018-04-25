@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+</head>
+<body>
+<div id="message-event-example" class="demo">
+  <p v-for="msg in messages">{{ msg }}</p>
+  <button-message v-on:message="handleMessage"></button-message>
+</div>
+<script>
+  Vue.component('button-message', {
+    template: `<div>
+    <input type="text" v-model="message" />
+    <button v-on:click="handleSendMessage">Send</button>
+  </div>`,
+    data: function () {
+      return {
+        message: 'test message'
+      }
+    },
+    methods: {
+      handleSendMessage: function () {
+        this.$emit('message', { message: this.message })
+      }
+    }
+  })
+
+  new Vue({
+    el: '#message-event-example',
+    data: {
+      messages: []
+    },
+    methods: {
+      handleMessage: function (payload) {
+        this.messages.push(payload.message)
+      }
+    }
+  })
+</script>
+</body>
+</html>

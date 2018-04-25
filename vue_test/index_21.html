@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS动画</title>
+    <script src="test/js/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+  <button @click="show =!show">taggle</button>
+  <transition name="fade">
+    <p v-if="show">vuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevuevue</p>
+  </transition>
+</div>
+<script>
+  new Vue({
+    el:'#demo',
+    data:{
+      show:true
+    }
+  })
+</script>
+<style>
+  .fade-enter-actie{
+    animation: bounce-in .5s;
+  }
+  .fade-leave-active{
+    animation: bounce-in .5s reverse;
+  }
+  @keyframes bounce-in {
+    0%{
+      /*放大缩小*/
+      transform: scale(0);
+    }
+    50%{
+      transform: scale(1.5);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+</style>
+</body>
+</html>
